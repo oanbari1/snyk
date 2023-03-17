@@ -2,11 +2,10 @@ def TF = "EC2"
 
 pipeline {
     agent {
-        label 'workernode2'
-        //label 'worker_terraform'
+        label 'worker_terraform'
     }
     tools {
-        terraform 'tf_test'
+        terraform 'tf_test' //set up this name in jenkins
         }
 
     stages {
