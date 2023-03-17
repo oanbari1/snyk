@@ -21,19 +21,7 @@ module "eks" {
 
   vpc_id                   = module.vpc.vpc_id
   subnet_ids               = module.vpc.public_subnets
-  #control_plane_subnet_ids = ["subnet-xyzde987", "subnet-slkjf456", "subnet-qeiru789"]
 
-  # Fargate Profile(s)
-  # fargate_profiles = {
-  #   default = {
-  #     name = "default"
-  #     selectors = [
-  #       {
-  #         namespace = "default"
-  #       }
-  #     ]
-  #   }
-  # }
 }
 
 module "fargate_profile" {
