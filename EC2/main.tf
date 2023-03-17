@@ -1,6 +1,6 @@
 resource "aws_instance" "ec2" {
   ami = "ami-096eb0f41d0cfaf5a"
-  #ami = "ami-0c7c02354c2c1d776"
+
   instance_type = "t2.micro"
   key_name = "devops_lab"
   vpc_security_group_ids = [aws_security_group.MYSG.id]
