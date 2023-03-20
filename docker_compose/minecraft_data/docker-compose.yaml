@@ -1,3 +1,4 @@
+#NOTE: heavy resource usage be careful and must have java runtime to run app
 version: "3"
 services:
   minecraft:
