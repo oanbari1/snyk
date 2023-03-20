@@ -1,8 +1,8 @@
-def TF = "EC2"
+def TF = "ECR"
 
 pipeline {
     agent {
-        label 'worker_terraform'
+        label 'worker_node1'
     }
     tools {
         terraform 'tf_test' //set up this name in jenkins
