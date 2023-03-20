@@ -24,3 +24,12 @@ systemctl enable docker
 yum install -y yum-utils
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 yum install -y terraform
+
+
+#Documentation to set up ssh with worker node on Jenkins
+#ssh-keygen on master node
+#ssh-copy-id to worker node
+#add password to user to ssh to with passwd user command
+#install terraform plugin and in jenkins globl tool config make installation directory  
+#add aws credentials download CloudBee AWS credential plugin
+#then add access key to jenkins credentials key id must be aws_credentals
