@@ -17,7 +17,7 @@ services:
     environment:
       MYSQL_DATABASE: wordpress
       MYSQL_ROOT_PASSWORD: "wordpress"
-    #creates a local dir to keep volume
+    #creates a local dir in the current dir to keep volume
     volumes:
       - ./mysql:/var/lib/mysql
 networks:
