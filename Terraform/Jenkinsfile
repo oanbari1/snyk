@@ -20,7 +20,7 @@ pipeline {
         
         stage('terraform') {
             steps {
-                dir("${WORKSPACE}/terraform/${TF}") {
+                dir("${WORKSPACE}/Terraform/${TF}") {
                 sh 'ls'
                 sh 'pwd'
                 sh 'terraform init'
@@ -31,7 +31,7 @@ pipeline {
         stage("plan") {
           steps {
             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    dir("${WORKSPACE}/terraform/${TF}") {
+                    dir("${WORKSPACE}/Terraform/${TF}") {
                     sh 'terraform plan'
                     }
             }
@@ -41,7 +41,7 @@ pipeline {
         stage("apply") {
           steps {
             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    dir("${WORKSPACE}/terraform/${TF}") {
+                    dir("${WORKSPACE}/Terraform/${TF}") {
                     sh 'terraform apply --auto-approve'
                     }
             }
@@ -56,7 +56,7 @@ pipeline {
           
           steps {
             withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credentials', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    dir("${WORKSPACE}/terraform/${TF}") {
+                    dir("${WORKSPACE}/Terraform/${TF}") {
                     sh 'terraform destroy --auto-approve'
                     }
             }
