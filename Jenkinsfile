@@ -11,15 +11,15 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Get some code from a GitHub repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/AD-7']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hchoi36/docker-Java-kubernetes-project.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Research-Associate-Internship/Hyunmin-Choi.git']]])
         
             }
         }  
 
         stage('Build image from Dockerfile') {
             steps {
-                dir("${WORKSPACE}/productcatalogue") {
-                sh 'docker build -t hchoi36/demo:v1 .'
+                dir("${WORKSPACE}/") {
+                sh 'docker build -t hchoi3/demo:v1 .'
                 }
             }
 
@@ -35,7 +35,7 @@ pipeline {
         stage('Push image to registry') {
             steps {
                 //WithDockerRegistry([credentialsId: "docker_registry", url: "" ]) {
-                sh 'docker push hchoi36/demo:v1'
+                sh 'docker push hchoi3/demo:v1'
                 //}
             }
         }
